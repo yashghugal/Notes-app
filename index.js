@@ -8,7 +8,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname,'public')))
 
-app.get('/',(req,res)=>{
+app.get('/Notes-app',(req,res)=>{
     fs.readdir('./files',(err,files)=>{
         res.render('index',{files:files})
     })
