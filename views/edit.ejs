@@ -12,7 +12,7 @@
         <form action="/edit" class="flex text-white flex-col items-center " method="post">
             <input class="hidden mt-5 w-1/2 bg-zinc-800 outline-none px-2 py-2" type="text" name="titleold" value="<%= filename %>"  placeholder="Enter Title...">
             <input class="mt-5 w-1/2 bg-zinc-800 outline-none px-2 py-2" type="text" name="titlenew" value="<%= filename %>"  placeholder="Enter Title...">
-            <input class=" mt-2 bg-zinc-800 outline-none w-1/2 px-2 py-2 resize-none" name="details" value="<%= filedetails %>" placeholder="">
+            <textarea class="h-[150px] mt-2 bg-zinc-800 outline-none w-1/2 px-2 py-2 resize-none" name="details" value="<%= filedetails %>" placeholder=""><%= filedetails %></textarea>
             <button type="submit" class="mt-2 bg-blue-500 px-3 py-2 rounded-sm text-white text-medium font-medium">update Task </button>
         </form>
     </div>

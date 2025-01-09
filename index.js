@@ -38,7 +38,7 @@ app.post('/edit',(req,res)=>{
         console.log(err);
     })
     fs.writeFile(`./files/${req.body.titlenew}`,req.body.details,(err)=>{
-        console.log("file saved")
+        console.log(err)
     })
     res.redirect("/")
 })
