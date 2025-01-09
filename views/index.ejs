@@ -10,18 +10,22 @@
 <body>
     <div class="w-full min-h-screen bg-zinc-900">
         <div class="form">
-            <form action="/create" class="flex flex-col items-center " method="post">
-                <input class="mt-5 w-1/2 outline-none px-2 py-2" type="text" name="title" placeholder="Title...">
-                <textarea class="mt-2 outline-none w-1/2 px-2 py-2 resize-none" name="details" id="" placeholder="Enter Text"></textarea>
-                <button type="submit" class="mt-2 bg-blue-500 px-3 py-2 rounded-sm text-white font-bold">Create Task</button>
+            <form action="/create" class="flex text-white flex-col items-center " method="post">
+                <input class="mt-5 w-1/2 bg-zinc-800 outline-none px-2 py-2" type="text" name="title" placeholder="Title...">
+                <textarea class="h-[120px] mt-2 bg-zinc-800 outline-none w-1/2 px-2 py-2 resize-none" name="details" id="" placeholder="Enter Task...."></textarea>
+                <button type="submit" class="mt-2 bg-blue-500 px-3 py-2 rounded-sm text-white text-medium font-medium">Create Task</button>
             </form>
         </div>
         <div class="mt-10 flex flex-wrap gap-3 justify-center" >
             <% if(files.length > 0){ %>
                 <% files.forEach(function(val){ %>
-                    <div class="w-72 rounded-sm bg-zinc-700 text-white px-2">
-                        <h1 class="text-xl "><%= val %></h1>
-                        <a href="/files/<%= val %>" target="_blank"  class="text-blue-500 inline-block my-2">Read More</a>
+                    <div class="flex flex-col justify-between w-72 h-[110px] rounded-sm bg-zinc-800 text-white px-4">
+                        <h1 class=" text-xl mt-3"><%= val %></h1>
+                        <div class="flex justify-between pb-4">
+                            <a href="/files/<%= val %>" class="text-blue-500 inline-block ">Read About</a>
+                            <a href="/edit/<%= val %>" class="text-green-500 inline-block ">Edit</a>
+                        </div>
+                        
                     </div>
                 <% }) %>
             <% }else{ %>
