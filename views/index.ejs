@@ -14,22 +14,26 @@
             <form action="/create" class="flex text-white flex-col items-center " method="post">
                 <input class="mt-5 w-1/2 bg-zinc-800 outline-none px-2 py-2" type="text" name="title" placeholder="Title...">
                 <textarea class="h-[120px] mt-2 bg-zinc-800 outline-none w-1/2 px-2 py-2 resize-none" name="details" id="" placeholder="Enter Task...."></textarea>
-                <button type="submit" class="mt-2 bg-blue-500 px-3 py-2 rounded-sm text-white text-medium font-medium">Create Task</button>
+                <button type="submit" class="mt-2 bg-blue-600 px-3 py-2 rounded-sm text-white text-medium font-medium">Create Task</button>
+                <p class=" mt-8 bg-zinc-500 h-[1px] w-[90%]"></P>
             </form>
         </div>
-        <div class="mt-8 flex flex-wrap gap-3 justify-center">
+        <div class="mt-5 flex flex-wrap gap-3 justify-center">
             <% if(files.length > 0){ %>
                 <% files.forEach(function(val){ %>
                     <div class="flex flex-col justify-between w-72 h-[110px] rounded-sm bg-zinc-800 text-white px-4">
                         <h1 class=" text-xl mt-3"><%= val %></h1>
                         <div class="flex justify-between pb-4">
-                            <a href="/files/<%= val %>" class="text-blue-500 inline-block ">Read About</a>
-                            <a href="/edit/<%= val %>" class="text-green-500 inline-block ">Edit</a>
+                            <a href="/files/<%= val %>" class="text-blue-400 inline-block ">Read About</a>
+                            <div class="flex gap-4 ">
+                                <a href="/edit/<%= val %>" class="text-green-400 inline-block ">Edit</a>
+                            <a class="text-red-400" href="/delete/<%= val %>">Delete</a>
+                            </div>
                         </div>
                     </div>
                 <% }) %>
             <% }else{ %>
-                <h4 class="text-zinc-500 text-xl">No task yet</h4>
+                <h4 class="text-zinc-400 text-xl ">No task added</h4>
             <% } %>
             
         </div>

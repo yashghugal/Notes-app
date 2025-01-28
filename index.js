@@ -16,12 +16,12 @@ app.get('/', (req, res) => {
 
 app.get('/files/:filename', (req, res) => {
     fs.readFile(`./files/${req.params.filename}`, "utf-8", (err, filedetails) => {
-        res.render('create', ({ filename: req.params.filename, filedetails: filedetails }))
+        res.render('read', ({ filename: req.params.filename, filedetails: filedetails }))
     })
 })
 app.post('/create', (req, res) => {
     fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`, req.body.details, () => {
-        console.log('files created')
+        console.log('file created')
     })
     res.redirect('/')
 })
@@ -35,13 +35,23 @@ app.get('/edit/:filename', (req, res) => {
 
 app.post('/edit',(req,res)=>{
     fs.rename(`./files/${req.body.titleold}`,`./files/${req.body.titlenew}`,(err)=>{
-        console.log(err);
+    
     })
     fs.writeFile(`./files/${req.body.titlenew}`,req.body.details,(err)=>{
-        console.log(err)
+    
     })
     res.redirect("/")
 })
+
+app.get('/delete/:filename',(req,res)=>{
+    fs.unlink(`./files/${req.params.filename}`,(err)=>{
+    res.redirect("/")
+})
+})
+app.get('/back',(req,res)=>{
+    res.redirect("/")
+})
+
 
 app.listen(3000, () => {
     console.log("server started")
